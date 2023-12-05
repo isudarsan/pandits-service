@@ -22,3 +22,17 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
+.DS_Store
+build/build-metrics.json
+build/quarkus-app/quarkus-app-dependencies.txt
+build/quarkus-app/quarkus/quarkus-application.dat
+build/quarkus-artifact.properties
+build/quarkus-build/app/quarkus-app/quarkus-app-dependencies.txt
+build/quarkus-build/app/quarkus-app/quarkus/quarkus-application.dat
+build/quarkus-build/app/quarkus-artifact.properties
+build/quarkus-build/gen/quarkus-app/quarkus-app-dependencies.txt
+build/quarkus-build/gen/quarkus-app/quarkus/quarkus-application.dat
+build/quarkus-build/gen/quarkus-artifact.properties
+build/resources/main/application.properties
+build/tmp/compileJava/previous-compilation-data.bin
+build/tmp/jar/MANIFEST.MF
