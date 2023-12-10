@@ -1,149 +1,191 @@
 package com.asnworks.services.pandit.entity;
 
-import java.time.LocalDateTime;
+import jakarta.persistence.*;
 
-import io.quarkus.hibernate.orm.panache.PanacheEntity;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import java.io.Serializable;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 @Entity
-@Table(name = "Pandits")
-public class Pandit extends PanacheEntity {
+@Table(name = "pandit")
+public class Pandit implements Serializable {
+    private static final long serialVersionUID = 5957264458653255489L;
+    private Integer id;
 
-    @Column(length = 255)
     private String firstName;
 
-    @Column(length = 255)
     private String lastName;
 
-    @Column(length = 50)
     private String gender;
 
-    @Column(name = "primary_mobile_number", length = 20)
-    private String primaryMobileNumber;
+    private Integer age;
 
-    @Column(name = "alternate_mobile_number", length = 20)
-    private String alternateMobileNumber;
+    private String primaryMobile;
 
-    @Column(length = 255)
-    private String email;
+    private String secondaryMobile;
 
-    @Column
-    private String address;
-
-    @Column(length = 20)
-    private String pincode;
-
-    @Column(length = 255)
     private String city;
 
-    @Column(length = 255)
-    private String state;
+    private String district;
 
-    @Column(name = "created_at")
-    private LocalDateTime createdAt;
+    private String pincode;
 
-    @Column(name = "updated_at")
-    private LocalDateTime updatedAt;
+    private String address;
 
-    public Pandit() {
+    private Set<Ceremony> ceremonies = new LinkedHashSet<>();
+
+    private Set<Homa> homas = new LinkedHashSet<>();
+
+    private Set<Parihara> pariharas = new LinkedHashSet<>();
+
+    private Set<Puja> pujas = new LinkedHashSet<>();
+
+    private Set<Ritual> rituals = new LinkedHashSet<>();
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "pandit_id", nullable = false)
+    public Integer getId() {
+        return id;
     }
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    @Column(name = "first_name")
     public String getFirstName() {
         return firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public String getPrimaryMobileNumber() {
-        return primaryMobileNumber;
-    }
-
-    public String getAlternateMobileNumber() {
-        return alternateMobileNumber;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public String getPincode() {
-        return pincode;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public String getState() {
-        return state;
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public LocalDateTime getUpdatedAt() {
-        return updatedAt;
     }
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
+    @Column(name = "last_name")
+    public String getLastName() {
+        return lastName;
+    }
+
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    @Column(name = "gender", length = 50)
+    public String getGender() {
+        return gender;
     }
 
     public void setGender(String gender) {
         this.gender = gender;
     }
 
-    public void setPrimaryMobileNumber(String primaryMobileNumber) {
-        this.primaryMobileNumber = primaryMobileNumber;
+    @Column(name = "age")
+    public Integer getAge() {
+        return age;
     }
 
-    public void setAlternateMobileNumber(String alternateMobileNumber) {
-        this.alternateMobileNumber = alternateMobileNumber;
+    public void setAge(Integer age) {
+        this.age = age;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    @Column(name = "primary_mobile", length = 20)
+    public String getPrimaryMobile() {
+        return primaryMobile;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setPrimaryMobile(String primaryMobile) {
+        this.primaryMobile = primaryMobile;
     }
 
-    public void setPincode(String pincode) {
-        this.pincode = pincode;
+    @Column(name = "secondary_mobile", length = 20)
+    public String getSecondaryMobile() {
+        return secondaryMobile;
+    }
+
+    public void setSecondaryMobile(String secondaryMobile) {
+        this.secondaryMobile = secondaryMobile;
+    }
+
+    @Column(name = "city")
+    public String getCity() {
+        return city;
     }
 
     public void setCity(String city) {
         this.city = city;
     }
 
-    public void setState(String state) {
-        this.state = state;
+    @Column(name = "district")
+    public String getDistrict() {
+        return district;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
+    public void setDistrict(String district) {
+        this.district = district;
     }
 
-    public void setUpdatedAt(LocalDateTime updatedAt) {
-        this.updatedAt = updatedAt;
+    @Column(name = "pincode", length = 10)
+    public String getPincode() {
+        return pincode;
+    }
+
+    public void setPincode(String pincode) {
+        this.pincode = pincode;
+    }
+
+    @Column(name = "address", length = Integer.MAX_VALUE)
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    @ManyToMany(mappedBy = "pandits")
+    public Set<Ceremony> getCeremonies() {
+        return ceremonies;
+    }
+
+    public void setCeremonies(Set<Ceremony> ceremonies) {
+        this.ceremonies = ceremonies;
+    }
+
+    @ManyToMany(mappedBy = "pandits")
+    public Set<Homa> getHomas() {
+        return homas;
+    }
+
+    public void setHomas(Set<Homa> homas) {
+        this.homas = homas;
+    }
+
+    @ManyToMany(mappedBy = "pandits")
+    public Set<Parihara> getPariharas() {
+        return pariharas;
+    }
+
+    public void setPariharas(Set<Parihara> pariharas) {
+        this.pariharas = pariharas;
+    }
+
+    @ManyToMany(mappedBy = "pandits")
+    public Set<Puja> getPujas() {
+        return pujas;
+    }
+
+    public void setPujas(Set<Puja> pujas) {
+        this.pujas = pujas;
+    }
+
+    @ManyToMany(mappedBy = "pandits")
+    public Set<Ritual> getRituals() {
+        return rituals;
+    }
+
+    public void setRituals(Set<Ritual> rituals) {
+        this.rituals = rituals;
     }
 
 }
