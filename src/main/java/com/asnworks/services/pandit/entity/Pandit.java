@@ -3,13 +3,11 @@ package com.asnworks.services.pandit.entity;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
-import java.util.LinkedHashSet;
-import java.util.Set;
 
 @Entity
 @Table(name = "pandit")
 public class Pandit implements Serializable {
-    private static final long serialVersionUID = 5957264458653255489L;
+    private static final long serialVersionUID = -415950640162483283L;
     private Integer id;
 
     private String firstName;
@@ -31,16 +29,6 @@ public class Pandit implements Serializable {
     private String pincode;
 
     private String address;
-
-    private Set<Ceremony> ceremonies = new LinkedHashSet<>();
-
-    private Set<Homa> homas = new LinkedHashSet<>();
-
-    private Set<Parihara> pariharas = new LinkedHashSet<>();
-
-    private Set<Puja> pujas = new LinkedHashSet<>();
-
-    private Set<Ritual> rituals = new LinkedHashSet<>();
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -141,51 +129,6 @@ public class Pandit implements Serializable {
 
     public void setAddress(String address) {
         this.address = address;
-    }
-
-    @ManyToMany(mappedBy = "pandits")
-    public Set<Ceremony> getCeremonies() {
-        return ceremonies;
-    }
-
-    public void setCeremonies(Set<Ceremony> ceremonies) {
-        this.ceremonies = ceremonies;
-    }
-
-    @ManyToMany(mappedBy = "pandits")
-    public Set<Homa> getHomas() {
-        return homas;
-    }
-
-    public void setHomas(Set<Homa> homas) {
-        this.homas = homas;
-    }
-
-    @ManyToMany(mappedBy = "pandits")
-    public Set<Parihara> getPariharas() {
-        return pariharas;
-    }
-
-    public void setPariharas(Set<Parihara> pariharas) {
-        this.pariharas = pariharas;
-    }
-
-    @ManyToMany(mappedBy = "pandits")
-    public Set<Puja> getPujas() {
-        return pujas;
-    }
-
-    public void setPujas(Set<Puja> pujas) {
-        this.pujas = pujas;
-    }
-
-    @ManyToMany(mappedBy = "pandits")
-    public Set<Ritual> getRituals() {
-        return rituals;
-    }
-
-    public void setRituals(Set<Ritual> rituals) {
-        this.rituals = rituals;
     }
 
 }

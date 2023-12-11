@@ -7,12 +7,10 @@ import java.io.Serializable;
 @Entity
 @Table(name = "pandit_rituals")
 public class PanditRitual implements Serializable {
-    private static final long serialVersionUID = -6147230693930377620L;
+    private static final long serialVersionUID = 7731053343889203587L;
     private PanditRitualId id;
 
     private Pandit pandit;
-
-    private Ritual ritual;
 
     @EmbeddedId
     public PanditRitualId getId() {
@@ -32,17 +30,6 @@ public class PanditRitual implements Serializable {
 
     public void setPandit(Pandit pandit) {
         this.pandit = pandit;
-    }
-
-    @MapsId("ritualId")
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "ritual_id", nullable = false)
-    public Ritual getRitual() {
-        return ritual;
-    }
-
-    public void setRitual(Ritual ritual) {
-        this.ritual = ritual;
     }
 
 }
