@@ -9,41 +9,46 @@ import java.util.Objects;
 
 @Embeddable
 public class PanditPariharaId implements Serializable {
-    private static final long serialVersionUID = -1285981037620611995L;
-    private Integer panditId;
 
-    private Integer pariharaId;
+  private static final long serialVersionUID = -1285981037620611995L;
+  private Integer panditId;
 
-    @Column(name = "pandit_id", nullable = false)
-    public Integer getPanditId() {
-        return panditId;
-    }
+  private Integer pariharaId;
 
-    public void setPanditId(Integer panditId) {
-        this.panditId = panditId;
-    }
+  @Column(name = "pandit_id", nullable = false)
+  public Integer getPanditId() {
+    return panditId;
+  }
 
-    @Column(name = "parihara_id", nullable = false)
-    public Integer getPariharaId() {
-        return pariharaId;
-    }
+  public void setPanditId(Integer panditId) {
+    this.panditId = panditId;
+  }
 
-    public void setPariharaId(Integer pariharaId) {
-        this.pariharaId = pariharaId;
-    }
+  @Column(name = "parihara_id", nullable = false)
+  public Integer getPariharaId() {
+    return pariharaId;
+  }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        PanditPariharaId entity = (PanditPariharaId) o;
-        return Objects.equals(this.pariharaId, entity.pariharaId) &&
-                Objects.equals(this.panditId, entity.panditId);
-    }
+  public void setPariharaId(Integer pariharaId) {
+    this.pariharaId = pariharaId;
+  }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(pariharaId, panditId);
-    }
+  @Override
+  public boolean equals(Object o) {
+      if (this == o) {
+          return true;
+      }
+      if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) {
+          return false;
+      }
+    PanditPariharaId entity = (PanditPariharaId) o;
+    return Objects.equals(this.pariharaId, entity.pariharaId) &&
+        Objects.equals(this.panditId, entity.panditId);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(pariharaId, panditId);
+  }
 
 }

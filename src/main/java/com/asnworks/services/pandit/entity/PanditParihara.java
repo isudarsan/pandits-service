@@ -13,29 +13,30 @@ import java.io.Serializable;
 @Entity
 @Table(name = "pandit_parihara")
 public class PanditParihara implements Serializable {
-    private static final long serialVersionUID = -7581637598113158032L;
-    private PanditPariharaId id;
 
-    private Pandit pandit;
+  private static final long serialVersionUID = -7581637598113158032L;
+  private PanditPariharaId id;
 
-    @EmbeddedId
-    public PanditPariharaId getId() {
-        return id;
-    }
+  private Pandit pandit;
 
-    public void setId(PanditPariharaId id) {
-        this.id = id;
-    }
+  @EmbeddedId
+  public PanditPariharaId getId() {
+    return id;
+  }
 
-    @MapsId("panditId")
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "pandit_id", nullable = false)
-    public Pandit getPandit() {
-        return pandit;
-    }
+  public void setId(PanditPariharaId id) {
+    this.id = id;
+  }
 
-    public void setPandit(Pandit pandit) {
-        this.pandit = pandit;
-    }
+  @MapsId("panditId")
+  @ManyToOne(fetch = FetchType.LAZY, optional = false)
+  @JoinColumn(name = "pandit_id", nullable = false)
+  public Pandit getPandit() {
+    return pandit;
+  }
+
+  public void setPandit(Pandit pandit) {
+    this.pandit = pandit;
+  }
 
 }

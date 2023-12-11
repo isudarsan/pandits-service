@@ -12,29 +12,30 @@ import java.io.Serializable;
 @Entity
 @Table(name = "homas")
 public class Homa implements Serializable {
-    private static final long serialVersionUID = 8243540880525988059L;
-    private Integer id;
 
-    private String name;
+  private static final long serialVersionUID = 8243540880525988059L;
+  private Integer id;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "homa_id", nullable = false)
-    public Integer getId() {
-        return id;
-    }
+  private String name;
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(name = "homa_id", nullable = false)
+  public Integer getId() {
+    return id;
+  }
 
-    @Column(name = "name")
-    public String getName() {
-        return name;
-    }
+  public void setId(Integer id) {
+    this.id = id;
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  @Column(name = "name")
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
 
 }

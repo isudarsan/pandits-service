@@ -12,128 +12,129 @@ import java.io.Serializable;
 @Entity
 @Table(name = "pandit")
 public class Pandit implements Serializable {
-    private static final long serialVersionUID = -415950640162483283L;
-    private Integer id;
 
-    private String firstName;
+  private static final long serialVersionUID = -415950640162483283L;
+  private Integer id;
 
-    private String lastName;
+  private String firstName;
 
-    private String gender;
+  private String lastName;
 
-    private Integer age;
+  private String gender;
 
-    private String primaryMobile;
+  private Integer age;
 
-    private String secondaryMobile;
+  private String primaryMobile;
 
-    private String city;
+  private String secondaryMobile;
 
-    private String district;
+  private String city;
 
-    private String pincode;
+  private String district;
 
-    private String address;
+  private String pincode;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "pandit_id", nullable = false)
-    public Integer getId() {
-        return id;
-    }
+  private String address;
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(name = "pandit_id", nullable = false)
+  public Integer getId() {
+    return id;
+  }
 
-    @Column(name = "first_name")
-    public String getFirstName() {
-        return firstName;
-    }
+  public void setId(Integer id) {
+    this.id = id;
+  }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
+  @Column(name = "first_name")
+  public String getFirstName() {
+    return firstName;
+  }
 
-    @Column(name = "last_name")
-    public String getLastName() {
-        return lastName;
-    }
+  public void setFirstName(String firstName) {
+    this.firstName = firstName;
+  }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
+  @Column(name = "last_name")
+  public String getLastName() {
+    return lastName;
+  }
 
-    @Column(name = "gender", length = 50)
-    public String getGender() {
-        return gender;
-    }
+  public void setLastName(String lastName) {
+    this.lastName = lastName;
+  }
 
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
+  @Column(name = "gender", length = 50)
+  public String getGender() {
+    return gender;
+  }
 
-    @Column(name = "age")
-    public Integer getAge() {
-        return age;
-    }
+  public void setGender(String gender) {
+    this.gender = gender;
+  }
 
-    public void setAge(Integer age) {
-        this.age = age;
-    }
+  @Column(name = "age")
+  public Integer getAge() {
+    return age;
+  }
 
-    @Column(name = "primary_mobile", length = 20)
-    public String getPrimaryMobile() {
-        return primaryMobile;
-    }
+  public void setAge(Integer age) {
+    this.age = age;
+  }
 
-    public void setPrimaryMobile(String primaryMobile) {
-        this.primaryMobile = primaryMobile;
-    }
+  @Column(name = "primary_mobile", length = 20)
+  public String getPrimaryMobile() {
+    return primaryMobile;
+  }
 
-    @Column(name = "secondary_mobile", length = 20)
-    public String getSecondaryMobile() {
-        return secondaryMobile;
-    }
+  public void setPrimaryMobile(String primaryMobile) {
+    this.primaryMobile = primaryMobile;
+  }
 
-    public void setSecondaryMobile(String secondaryMobile) {
-        this.secondaryMobile = secondaryMobile;
-    }
+  @Column(name = "secondary_mobile", length = 20)
+  public String getSecondaryMobile() {
+    return secondaryMobile;
+  }
 
-    @Column(name = "city")
-    public String getCity() {
-        return city;
-    }
+  public void setSecondaryMobile(String secondaryMobile) {
+    this.secondaryMobile = secondaryMobile;
+  }
 
-    public void setCity(String city) {
-        this.city = city;
-    }
+  @Column(name = "city")
+  public String getCity() {
+    return city;
+  }
 
-    @Column(name = "district")
-    public String getDistrict() {
-        return district;
-    }
+  public void setCity(String city) {
+    this.city = city;
+  }
 
-    public void setDistrict(String district) {
-        this.district = district;
-    }
+  @Column(name = "district")
+  public String getDistrict() {
+    return district;
+  }
 
-    @Column(name = "pincode", length = 10)
-    public String getPincode() {
-        return pincode;
-    }
+  public void setDistrict(String district) {
+    this.district = district;
+  }
 
-    public void setPincode(String pincode) {
-        this.pincode = pincode;
-    }
+  @Column(name = "pincode", length = 10)
+  public String getPincode() {
+    return pincode;
+  }
 
-    @Column(name = "address", length = Integer.MAX_VALUE)
-    public String getAddress() {
-        return address;
-    }
+  public void setPincode(String pincode) {
+    this.pincode = pincode;
+  }
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
+  @Column(name = "address", length = Integer.MAX_VALUE)
+  public String getAddress() {
+    return address;
+  }
+
+  public void setAddress(String address) {
+    this.address = address;
+  }
 
 }

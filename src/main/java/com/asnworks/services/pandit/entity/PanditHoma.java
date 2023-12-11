@@ -13,42 +13,43 @@ import java.io.Serializable;
 @Entity
 @Table(name = "pandit_homas")
 public class PanditHoma implements Serializable {
-    private static final long serialVersionUID = 2164869182495962230L;
-    private PanditHomaId id;
 
-    private Pandit pandit;
+  private static final long serialVersionUID = 2164869182495962230L;
+  private PanditHomaId id;
 
-    private Homa homa;
+  private Pandit pandit;
 
-    @EmbeddedId
-    public PanditHomaId getId() {
-        return id;
-    }
+  private Homa homa;
 
-    public void setId(PanditHomaId id) {
-        this.id = id;
-    }
+  @EmbeddedId
+  public PanditHomaId getId() {
+    return id;
+  }
 
-    @MapsId("panditId")
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "pandit_id", nullable = false)
-    public Pandit getPandit() {
-        return pandit;
-    }
+  public void setId(PanditHomaId id) {
+    this.id = id;
+  }
 
-    public void setPandit(Pandit pandit) {
-        this.pandit = pandit;
-    }
+  @MapsId("panditId")
+  @ManyToOne(fetch = FetchType.LAZY, optional = false)
+  @JoinColumn(name = "pandit_id", nullable = false)
+  public Pandit getPandit() {
+    return pandit;
+  }
 
-    @MapsId("homaId")
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "homa_id", nullable = false)
-    public Homa getHoma() {
-        return homa;
-    }
+  public void setPandit(Pandit pandit) {
+    this.pandit = pandit;
+  }
 
-    public void setHoma(Homa homa) {
-        this.homa = homa;
-    }
+  @MapsId("homaId")
+  @ManyToOne(fetch = FetchType.LAZY, optional = false)
+  @JoinColumn(name = "homa_id", nullable = false)
+  public Homa getHoma() {
+    return homa;
+  }
+
+  public void setHoma(Homa homa) {
+    this.homa = homa;
+  }
 
 }
