@@ -84,3 +84,14 @@ gradle-app.setting
 ### Gradle Patch ###
 # Java heap dump
 *.hprof
+.idea/compiler.xml
+.idea/dataSources.xml
+.idea/gradle.xml
+.idea/jarRepositories.xml
+.idea/jpa-buddy.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/modules/pandits-service.integrationTest.iml
+.idea/modules/pandits-service.main.iml
+.idea/vcs.xml
+.jpb/jpb-settings.xml
