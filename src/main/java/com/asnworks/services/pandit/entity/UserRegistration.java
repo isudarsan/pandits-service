@@ -2,24 +2,20 @@ package com.asnworks.services.pandit.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import java.io.Serializable;
 import java.time.OffsetDateTime;
+import java.util.UUID;
 
 @Entity
-@Table(name = "pandit_ritual")
-public class PanditRitual implements Serializable {
+@Table(name = "user_registration")
+public class UserRegistration implements Serializable {
 
-  private static final long serialVersionUID = 9023926869327554733L;
-  private Integer id;
+  private static final long serialVersionUID = 6297351977195087453L;
+  private UUID id;
 
-  private PanditProfile pandit;
+  private String mobileNumber;
 
   private OffsetDateTime createdOn;
 
@@ -30,24 +26,22 @@ public class PanditRitual implements Serializable {
   private String updatedBy;
 
   @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "id", nullable = false)
-  public Integer getId() {
+  public UUID getId() {
     return id;
   }
 
-  public void setId(Integer id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 
-  @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "pandit_id")
-  public PanditProfile getPandit() {
-    return pandit;
+  @Column(name = "mobile_number", nullable = false, length = 20)
+  public String getMobileNumber() {
+    return mobileNumber;
   }
 
-  public void setPandit(PanditProfile pandit) {
-    this.pandit = pandit;
+  public void setMobileNumber(String mobileNumber) {
+    this.mobileNumber = mobileNumber;
   }
 
   @Column(name = "created_on")
